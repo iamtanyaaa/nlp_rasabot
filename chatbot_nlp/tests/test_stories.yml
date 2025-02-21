@@ -1,0 +1,89 @@
+version: "3.1"
+
+test_stories:
+
+- story: candidate application with sufficient experience and skills
+  steps:
+  - user: |
+      Привет
+    intent: greet
+  - action: utter_greet
+  - user: |
+      Меня зовут [Иван] (name)
+    intent: provide_name
+  - action: utter_ask_age
+  - user: |
+      Мне [25] (age) лет
+    intent: provide_age
+  - action: utter_ask_contact
+  - user: |
+      Мой номер - [+79147385639] (phone)
+    intent: provide_contact
+  - action: utter_ask_role
+  - user: |
+      Я хочу работать Data Scientist
+    intent: apply_for_role
+  - action: utter_ask_experience
+  - user: |
+      У меня есть опыт работы в [аналитике данных] (experience_role)
+    intent: provide_experience
+  - action: utter_ask_years
+  - user: |
+      [3] (experience_years) года
+    intent: provide_years
+  - action: utter_ask_skills
+  - user: |
+      Я владею [Python, SQL и машинным обучением] (skills)
+    intent: provide_skills
+  - action: utter_ask_salary
+  - user: |
+      Я хочу зарплату [100 тысяч] (salary) рублей
+    intent: provide_salary_expectation
+  - action: action_evaluate_candidate
+  - user: |
+      Спасибо
+    intent: thank_you
+  - action: utter_thank_you
+
+- story: candidate application with insufficient experience
+  steps:
+  - user: |
+      Привет
+    intent: greet
+  - action: utter_greet
+  - user: |
+      Меня зовут [Анна] (name)
+    intent: provide_name
+  - action: utter_ask_age
+  - user: |
+      Мне [22] (age) лет
+    intent: provide_age
+  - action: utter_ask_contact
+  - user: |
+      Моя почта - [anna@mail.ru] (email)
+    intent: provide_contact
+  - action: utter_ask_role
+  - user: |
+      Я хочу работать Data Engineer
+    intent: apply_for_role
+  - action: utter_ask_experience
+  - user: |
+      У меня есть опыт работы в [разработке ПО] (experience_role)
+    intent: provide_experience
+  - action: utter_ask_years
+  - user: |
+      [1] (experience_years) год
+    intent: provide_years
+  - action: utter_ask_skills
+  - user: |
+      Я знаю [Python и SQL] (skills)
+    intent: provide_skills
+  - action: utter_ask_salary
+  - user: |
+      Я хочу зарплату [60000] (salary) рублей
+    intent: provide_salary_expectation
+  - action: action_evaluate_candidate
+  - user: |
+      Спасибо
+    intent: thank_you
+  - action: utter_thank_you

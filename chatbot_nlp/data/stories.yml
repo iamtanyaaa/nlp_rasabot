@@ -1,0 +1,28 @@
+version: "3.1"
+
+stories:
+
+- story: candidate application
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_name
+  - intent: provide_name
+  - action: utter_ask_age
+  - intent: provide_age
+  - action: utter_ask_contact
+  - intent: provide_contact
+  - action: utter_ask_role
+  - intent: apply_for_role
+  - action: utter_ask_experience
+  - intent: provide_experience
+  - action: utter_ask_years
+  - intent: provide_years
+  - action: utter_ask_skills
+  - intent: provide_skills
+  - action: utter_ask_salary
+  - intent: provide_salary_expectation
+  - action: action_evaluate_candidate
+  - intent: thank_you
+  - action: utter_thank_you
+

@@ -1,0 +1,107 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - provide_name
+  - provide_age
+  - provide_contact
+  - apply_for_role
+  - provide_experience
+  - provide_years
+  - provide_skills
+  - provide_salary_expectation
+  - thank_you
+
+entities:
+  - name
+  - age
+  - email
+  - phone
+  - role
+  - experience_role
+  - experience_years
+  - skills
+  - salary
+
+responses:
+  utter_greet:
+    - text: "Здравствуйте! Я HR-бот."
+  utter_goodbye:
+    - text: "Спасибо за ваше время. Удачи!"
+  utter_ask_name:
+    - text: "Как Вас зовут?"
+  utter_ask_age:
+    - text: "Сколько Вам лет?"
+  utter_ask_contact:
+    - text: "Как с Вами можно будет связаться? Напиши ваш номер телефона или почту, пожалуйста."
+  utter_ask_role:
+    - text: "Какую позицию Вы рассматриваете?"
+  utter_ask_experience:
+    - text: "Расскажите о вашем опыте работы. Чем вы занимались до этого?"
+  utter_ask_years:
+    - text: "Сколько Вы уже в этой области?"
+  utter_ask_skills:
+    - text: "Какими навыками вы обладаете?"
+  utter_ask_salary:
+    - text: "Какая ожидаемая зарплата в месяц?"
+  utter_thank_you:
+    - text: "Спасибо за участие в интервью."
+
+actions:
+  - action_evaluate_candidate
+
+slots:
+
+  name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: name
+  age:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: age
+  email:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: email
+
+  phone:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: phone
+
+  role:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: role
+  experience_role:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: experience_role
+  experience_years:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: experience_years
+  skills:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: skills
+  salary:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: salary
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

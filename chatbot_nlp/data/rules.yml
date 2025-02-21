@@ -1,0 +1,61 @@
+version: "3.1"
+
+rules:
+
+- rule: Greet the user
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_name
+
+- rule: Respond to name input
+  steps:
+  - intent: provide_name
+  - action: utter_ask_age
+
+- rule: Respond to age input
+  steps:
+  - intent: provide_age
+  - action: utter_ask_contact
+
+- rule: Respond to contact input
+  steps:
+  - intent: provide_contact
+  - action: utter_ask_role
+
+- rule: Respond to role input
+  steps:
+  - intent: apply_for_role
+  - action: utter_ask_experience
+
+- rule: Respond to experience input
+  steps:
+  - intent: provide_experience
+  - action: utter_ask_years
+
+
+- rule: Respond to years input
+  steps:
+  - intent: provide_years
+  - action: utter_ask_skills
+
+- rule: Respond to skills input
+  steps:
+  - intent: provide_skills
+  - action: utter_ask_salary
+
+- rule: Respond to salary input
+  steps:
+  - intent: provide_salary_expectation
+  - action: action_evaluate_candidate
+
+
+- rule: Thank the user after the interview
+  steps:
+  - intent: thank_you
+  - action: utter_thank_you
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye

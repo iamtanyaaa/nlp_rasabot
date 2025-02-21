@@ -1,0 +1,32 @@
+version: "3.1"
+
+language: "ru"
+
+pipeline:
+- name: WhitespaceTokenizer
+- name: RegexFeaturizer
+- name: LexicalSyntacticFeaturizer
+- name: CountVectorsFeaturizer
+  analyzer: char_wb
+  min_ngram: 1
+  max_ngram: 4
+- name: DIETClassifier
+  epochs: 150
+  entity_recognition: true
+  constrain_similarities: true
+  entities: ["name", "age", "email", "phone", "role", "experience_role", "experience_years", "skills", "salary"]
+- name: EntitySynonymMapper
+- name: ResponseSelector
+  epochs: 50
+- name: FallbackClassifier
+  threshold: 0.4
+
+policies:
+- name: MemoizationPolicy
+  priority: 3
+- name: RulePolicy
+- name: TEDPolicy
+  epochs: 50
+- name: AugmentedMemoizationPolicy
+  priority: 4
+assistant_id: 20250215-151859-mechanical-beaujolais

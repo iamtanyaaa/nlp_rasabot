@@ -1,0 +1,199 @@
+version: "3.1"
+nlu:
+  - regex: email
+    examples: |
+      - ^[\w\.-]+@[a-zA-Z\d-]+\.[a-zA-Z]{2,}$
+
+  - regex: phone
+    examples: |
+      - ^(\+7|8)?[\s\-]?\(?\d{3}\)?[\s\-]?\d{3}[\s\-]?\d{2}[\s\-]?\d{2}$
+
+  - lookup: experience_role
+    examples: |
+      - Project Manager
+      - Data analyst
+      - Data Engineer
+      - Data scientist
+      - MLOps Engineer
+
+  - synonym: Project Manager
+    examples: |
+      - project
+      - проджект менеджер
+      - проджект
+      - Проектный менеджер
+      - Руководитель проекта
+      - Менеджер проекта
+      - Координатор проекта
+      - Управляющий проектом
+
+  - synonym: Data Engineer
+    examples: |
+      - Инженер данных
+      - Разработчик хранилищ данных
+      - Специалист по обработке данных
+      - Дата-инженер
+
+  - synonym: Data Analyst
+    examples: |
+      - Аналитик данных
+      - Дата-аналитик
+      - Продуктовый аналитик 
+      - Аналитик
+
+  - synonym: Data scientist
+    examples: |
+      - Дата-сайентист
+      - Исследователь данных
+      - ML-разработчик
+      - ML-специалист
+      - Специалист в области машинного обучения
+      - AI-разработчик
+      - AI-исследователь
+
+  - synonym: MLOps Engineer
+    examples: |
+      - Инженер MLOps
+      - DevOps для машинного обучения
+      - Инженер по эксплуатации ML-моделей
+      - Инженер по ML-инфраструктуре
+      
+  
+    
+
+  - intent: greet
+    examples: |
+      - Привет
+      - привет
+      - Привет!
+      - Здравствуйте!
+      - здравствуйте
+      - здраствуйте
+      - Добрый день
+      - Доброе утро
+      - Добрый вечер
+      - Приветствую
+      - Здарова
+      - Привет, как дела?
+      - Здравствуй
+
+  - intent: goodbye
+    examples: |
+      - До свидания
+      - до свидания!
+      - Пока
+      - Увидимся
+      - Пока-пока
+      - До скорого
+      - До скорой встречи
+      - До скорых встреч
+      - Прощай
+
+  - intent: provide_name
+    examples: |
+      - Меня зовут [Иван](name)
+      - меня зовут [таня](name)
+      - Я [Роман](name)
+      - Можно просто [Евгений](name)
+      - Мое Имя - [Екатерина](name)
+      - Меня зовут [Анастасия](name), приятно познакомиться
+
+  - intent: provide_age
+    examples: |
+      - Мне [22](age) года
+      - Мне [35](age) лет
+      - Мой возраст - [43](age) года
+      - Мой возраст - [23](age) года
+      - Сейчас мне [25](age) лет
+      - Мне полных [18](age) лет  
+      - [25](age)
+      - [36](age) лет
+      - [32](age) года
+
+  - intent: provide_contact
+    examples: |
+      - Мой номер - [+79147385639](phone)
+      - [89256484488](phone)
+      - Можете звонить по номеру [+79111234567](phone)
+      - Номер - [89111234567](phone)
+      - Моя почта - [ekaterinatolmakova@mail.ru](email)
+      - Можете писать на почту [itsnatasha@gmail.com](email)
+      - [vladimirvladimir@yandex.ru](email)
+      - Почтовый ящик - [nastya_workemail@gmail.com](email)
+      
+      
+
+  - intent: provide_experience
+    examples: |
+      - У меня есть опыт работы в [аналитике данных](experience_role)
+      - Я работал в [разработке программного обеспечения](experience_role)
+      - У меня был опыта работы в области [машинного обучения](experience_role)
+      - Я работал в [IT-сфере](experience_role) 4 года
+      - У меня есть опыт в сфере [маркетинга](experience_role) 
+      - Несколько лет в сфере [бизнес-анализа](experience_role)
+      - Я разрабатывал [backend](experience_role) для финтех-продуктов 
+      - Работал [инженером по данным](experience_role) в банке 
+      - 8 лет опыта в разработке ПО, последние 3 года занимаюсь [AI](experience_role)
+      - Ведущий [аналитик BI-систем](experience_role)
+      - Работал [DevOps-инженером](experience_role), занимался CI/CD
+      - 2 года работал в стартапе в роли [ML-инженера](experience_role)
+      - Занимался [анализом данных](experience_role) в ритейле
+      - Работал [Fullstack-разработчиком](experience_role) на Python и React 
+      - 10 лет опыта в [IT](experience_role), последние 4 года в [облачных технологиях](experience_role)
+
+  - intent: provide_years
+    examples: |
+      - [5](experience_years) лет
+      - [2](experience_years) года
+      - В этой области я уже [7](experience_years) лет
+      - Я работаю в этой области [3](experience_years) года
+      - [6](experience_years)
+
+  - intent: provide_skills
+    examples: |
+      - Я владею [Python, SQL и машинным обучением](skills)
+      - Знаю [TensorFlow и PyTorch](skills)
+      - У меня есть опыт работы с [большими данными и аналитикой](skills)
+      - Я умею работать с библиотеками [Scikit-learn и Pandas](skills)
+      - Знаю основы [обработки данных и статистики](skills)
+      - Разбираюсь в [AWS и облачных сервисах](skills)
+      - Хорошо знаю [Linux, Bash и Docker](skills)
+      - Опыт работы с [Apache Spark и Hadoop](skills)
+      - Умею строить [ETL-пайплайны](skills)
+      - Разрабатываю [API на FastAPI и Flask](skills)
+      - Хорошо знаком с [алгоритмами и структурами данных](skills)
+      - Умею писать [SQL-запросы](skills) любой сложности
+      - Опыт в работе с [графами и графовыми БД (Neo4j)](skills)
+      - Глубокие знания в области[NLP и трансформеров]
+      - Оптимизирую ML-модели для продакшена [(TensorRT, ONNX)](skills)
+
+  - intent: provide_salary_expectation
+    examples: |
+      - Моя ожидаемая зарплата [100 тысяч](salary) рублей
+      - Я рассчитываю на зарплату около [120 тысяч](salary) рублей
+      - Хотел бы получать [80-90 тысяч](salary) рублей в месяц
+      - Ожидаю зарплату в пределах [110 тысяч](salary)
+      - Мой финансовый минимум — [70 тысяч](salary) рублей
+      - Я бы хотела получать [80 000](salary)
+      - Минимальная зарплата - [95к](salary)
+      - Рассчитываю на [75000](salary) руб. в месяц
+      - Моя вилка - [50000 - 100000](salary) рублей
+      
+
+  - intent: apply_for_role
+    examples: |
+      - Я хочу работать [Data Scientist](role)
+      - Я претендую на должность [Project Manager](role)
+      - Мне подходит роль [MLOps Engineer](role)
+      - Я бы хотел стать [Data Analyst](role) 
+      - Рассмотрю вакансию [Data Engineer](role)
+
+
+  - intent: thank_you
+    examples: |
+      - Спасибо
+      - Благодарю
+      - Спасибо за собеседование
+      - Спасибо за ваше время
+      - Большое спасибо
+
