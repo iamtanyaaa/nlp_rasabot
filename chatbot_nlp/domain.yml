@@ -5,7 +5,8 @@ intents:
   - goodbye
   - provide_name
   - provide_age
-  - provide_contact
+  - provide_phone
+  - provide_email
   - apply_for_role
   - provide_experience
   - provide_years
@@ -16,8 +17,8 @@ intents:
 entities:
   - name
   - age
-  - email
   - phone
+  - email
   - role
   - experience_role
   - experience_years
@@ -27,19 +28,19 @@ entities:
 responses:
   utter_greet:
     - text: "Здравствуйте! Я HR-бот."
-  utter_goodbye:
-    - text: "Спасибо за ваше время. Удачи!"
   utter_ask_name:
     - text: "Как Вас зовут?"
   utter_ask_age:
     - text: "Сколько Вам лет?"
-  utter_ask_contact:
-    - text: "Как с Вами можно будет связаться? Напиши ваш номер телефона или почту, пожалуйста."
+  utter_ask_phone:
+    - text: "Как с Вами можно будет связаться? Напишите ваш номер телефона, пожалуйста."
+  utter_ask_email:
+    - text: "Напишите ваш адрес электронной почты, пожалуйста."
   utter_ask_role:
     - text: "Какую позицию Вы рассматриваете?"
-  utter_ask_experience:
+  utter_ask_experience_role:
     - text: "Расскажите о вашем опыте работы. Чем вы занимались до этого?"
-  utter_ask_years:
+  utter_ask_experience_years:
     - text: "Сколько Вы уже в этой области?"
   utter_ask_skills:
     - text: "Какими навыками вы обладаете?"
@@ -47,6 +48,8 @@ responses:
     - text: "Какая ожидаемая зарплата в месяц?"
   utter_thank_you:
     - text: "Спасибо за участие в интервью."
+  utter_goodbye:
+    - text: "Спасибо за ваше время! Сейчас пришлем вам результаты интервью."
 
 actions:
   - action_evaluate_candidate
@@ -55,53 +58,71 @@ slots:
 
   name:
     type: text
+    influence_conversation: True
     mappings:
       - type: from_entity
         entity: name
   age:
     type: float
+    influence_conversation: True
     mappings:
       - type: from_entity
         entity: age
-  email:
-    type: text
-    mappings:
-      - type: from_entity
-        entity: email
-
   phone:
     type: text
+    influence_conversation: True
     mappings:
       - type: from_entity
         entity: phone
-
+  email:
+    type: text
+    influence_conversation: True
+    mappings:
+      - type: from_entity
+        entity: email
   role:
     type: text
+    influence_conversation: True
     mappings:
       - type: from_entity
         entity: role
   experience_role:
     type: text
+    influence_conversation: True
     mappings:
       - type: from_entity
         entity: experience_role
   experience_years:
     type: float
+    influence_conversation: True
     mappings:
       - type: from_entity
         entity: experience_years
   skills:
     type: text
+    influence_conversation: True
     mappings:
       - type: from_entity
         entity: skills
   salary:
     type: float
+    influence_conversation: True
     mappings:
       - type: from_entity
         entity: salary
 
-
+forms:
+  candidate_form:
+    required_slots:
+        - name
+        - age
+        - phone
+        - email
+        - role
+        - experience_role
+        - experience_years
+        - skills
+        - salary
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
