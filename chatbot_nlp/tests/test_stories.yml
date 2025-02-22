@@ -15,10 +15,14 @@ test_stories:
   - user: |
       Мне [25] (age) лет
     intent: provide_age
-  - action: utter_ask_contact
+  - action: utter_ask_phone
   - user: |
       Мой номер - [+79147385639] (phone)
-    intent: provide_contact
+    intent: provide_phone
+  - action: utter_ask_email
+  - user: |
+      Моя почта - [tatianaromanova@gmail.com] (email)
+    intent: provide_email
   - action: utter_ask_role
   - user: |
       Я хочу работать Data Scientist
@@ -57,11 +61,15 @@ test_stories:
   - action: utter_ask_age
   - user: |
       Мне [22] (age) лет
-    intent: provide_age
-  - action: utter_ask_contact
+  - intent: provide_age
+  - action: utter_ask_phone
   - user: |
-      Моя почта - [anna@mail.ru] (email)
-    intent: provide_contact
+      Мой номер - [+79147385639] (phone)
+  - intent: provide_phone
+  - action: utter_ask_email
+  - user: |
+      Моя почта - [tatianaromanova@gmail.com] (email)
+  - intent: provide_email
   - action: utter_ask_role
   - user: |
       Я хочу работать Data Engineer
@@ -70,7 +78,7 @@ test_stories:
   - user: |
       У меня есть опыт работы в [разработке ПО] (experience_role)
     intent: provide_experience
-  - action: utter_ask_years
+  - action: utter_ask_experience_years
   - user: |
       [1] (experience_years) год
     intent: provide_years
