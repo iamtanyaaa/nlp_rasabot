@@ -110,12 +110,19 @@ nlu:
       - [36](age) лет
       - [32](age) года
 
-  - intent: provide_contact
+  - intent: provide_phone
     examples: |
       - Мой номер - [+79147385639](phone)
       - [89256484488](phone)
       - Можете звонить по номеру [+79111234567](phone)
       - Номер - [89111234567](phone)
+      - Моя почта - [ekaterinatolmakova@mail.ru](email)
+      - Можете писать на почту [itsnatasha@gmail.com](email)
+      - [vladimirvladimir@yandex.ru](email)
+      - Почтовый ящик - [nastya_workemail@gmail.com](email)
+
+  - intent: provide_email
+    examples: |
       - Моя почта - [ekaterinatolmakova@mail.ru](email)
       - Можете писать на почту [itsnatasha@gmail.com](email)
       - [vladimirvladimir@yandex.ru](email)
@@ -164,7 +171,7 @@ nlu:
       - Хорошо знаком с [алгоритмами и структурами данных](skills)
       - Умею писать [SQL-запросы](skills) любой сложности
       - Опыт в работе с [графами и графовыми БД (Neo4j)](skills)
-      - Глубокие знания в области[NLP и трансформеров]
+      - Глубокие знания в области [NLP и трансформеров](skills)
       - Оптимизирую ML-модели для продакшена [(TensorRT, ONNX)](skills)
 
   - intent: provide_salary_expectation
@@ -177,7 +184,7 @@ nlu:
       - Я бы хотела получать [80 000](salary)
       - Минимальная зарплата - [95к](salary)
       - Рассчитываю на [75000](salary) руб. в месяц
-      - Моя вилка - [50000 - 100000](salary) рублей
+      - Моя вилка - [50000 - 100000(salary) рублей
       
 
   - intent: apply_for_role
