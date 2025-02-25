@@ -9,8 +9,6 @@ intents:
   - provide_email
   - apply_for_role
   - provide_experience
-  - provide_years
-  - provide_skills
   - provide_salary_expectation
   - thank_you
 
@@ -20,9 +18,6 @@ entities:
   - phone
   - email
   - role
-  - experience_role
-  - experience_years
-  - skills
   - salary
 
 responses:
@@ -38,12 +33,10 @@ responses:
     - text: "Напишите ваш адрес электронной почты, пожалуйста."
   utter_ask_role:
     - text: "Какую позицию Вы рассматриваете?"
-  utter_ask_experience_role:
-    - text: "Расскажите о вашем опыте работы. Чем вы занимались до этого?"
-  utter_ask_experience_years:
-    - text: "Сколько Вы уже в этой области?"
-  utter_ask_skills:
-    - text: "Какими навыками вы обладаете?"
+  utter_ask_experience:
+    - text: "Расскажите о вашем опыте работы. Чем вы занимались, какие у вас были обязанности и достижения?"
+    - text: "Опишите ваш опыт работы. Какие проекты вы вели, с какими командами работали?"
+    - text: "Поделитесь информацией о вашем опыте работы. Какие задачи вы решали, каких результатов достигли?"
   utter_ask_salary:
     - text: "Какая ожидаемая зарплата в месяц?"
   utter_thank_you:
@@ -86,24 +79,14 @@ slots:
     mappings:
       - type: from_entity
         entity: role
-  experience_role:
+  experience:
     type: text
     influence_conversation: True
     mappings:
-      - type: from_entity
-        entity: experience_role
-  experience_years:
-    type: float
-    influence_conversation: True
-    mappings:
-      - type: from_entity
-        entity: experience_years
-  skills:
-    type: text
-    influence_conversation: True
-    mappings:
-      - type: from_entity
-        entity: skills
+      - type: from_text
+        intent: provide_experience
+        not_intent: [apply_for_role, provide_salary_expectation]
+        not_entities: [role]
   salary:
     type: float
     influence_conversation: True
@@ -119,9 +102,7 @@ forms:
         - phone
         - email
         - role
-        - experience_role
-        - experience_years
-        - skills
+        - experience
         - salary
 session_config:
   session_expiration_time: 60
