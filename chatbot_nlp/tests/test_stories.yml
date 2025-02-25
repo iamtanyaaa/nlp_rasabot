@@ -31,14 +31,6 @@ test_stories:
   - user: |
       У меня есть опыт работы в [аналитике данных] (experience_role)
     intent: provide_experience
-  - action: utter_ask_years
-  - user: |
-      [3] (experience_years) года
-    intent: provide_years
-  - action: utter_ask_skills
-  - user: |
-      Я владею [Python, SQL и машинным обучением] (skills)
-    intent: provide_skills
   - action: utter_ask_salary
   - user: |
       Я хочу зарплату [100 тысяч] (salary) рублей
@@ -78,14 +70,6 @@ test_stories:
   - user: |
       У меня есть опыт работы в [разработке ПО] (experience_role)
     intent: provide_experience
-  - action: utter_ask_experience_years
-  - user: |
-      [1] (experience_years) год
-    intent: provide_years
-  - action: utter_ask_skills
-  - user: |
-      Я знаю [Python и SQL] (skills)
-    intent: provide_skills
   - action: utter_ask_salary
   - user: |
       Я хочу зарплату [60000] (salary) рублей
